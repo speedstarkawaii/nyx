@@ -1,6 +1,8 @@
 --shit too lazy to do in c
 
 -- MACROS
+
+warn("Loaded")
 base64 = {} base64.encode = function(path) return base64_encode(path) end base64.decode = function(path) return base64_decode(path) end
 crypt = {} crypt.base64_encode = function(path) return base64_encode(path) end crypt.base64encode = function(path) return base64_encode(path) end  crypt.base64_decode = function(path) return base64_decode(path) end crypt.base64decode = function(path) return base64_decode(path) end
 crypt.base64 = {} crypt.base64.encode = function(path) return base64_encode(path) end  crypt.base64.decode = function(path) return base64_decode(path) end
