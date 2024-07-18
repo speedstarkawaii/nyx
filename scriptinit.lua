@@ -32,3 +32,34 @@ msg = string.gsub(msg, "CoreGui.RobloxGui.Modules.Common.PolicyService:0:", "Cor
 
 print(msg)
 end
+
+SAVED_METATABLE = SAVED_METATABLE or {}
+local lua_setmetatable = setmetatable
+setmetatable = function(a, b)
+    local c, d = pcall(function()
+        local c = lua_setmetatable(a, b)
+    end)
+    SAVED_METATABLE[a] = b
+    if not c then
+        error(d)
+    end
+    return a
+end
+
+getrawmetatable = function(a)
+    local Old_Meta = SAVED_METATABLE[a]
+    local New = {}
+    local New_A = {}
+    for i,v in pairs(a) do
+        New[i] = v
+    end
+    return SAVED_METATABLE[a]
+end
+
+setrawmetatable = function(a, b)
+    local mtb = getrawmetatable(a)
+    table.foreach(b, function(aa, bb)
+        mtb[aa] = bb
+    end)
+    return a
+end
