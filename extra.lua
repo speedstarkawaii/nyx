@@ -1,0 +1,3 @@
+info = function(...)
+  print(...)
+end
