@@ -37,3 +37,20 @@ function base64_decode(data)
     
     return table.concat(result):sub(1, #result - padding)
 end
+
+--macros because unc
+
+base64 = {}
+base64.encode = function(path) return base64_encode(path) end
+base64.decode = function(path) return base64_decode(path) end
+
+crypt = {} 
+crypt.base64_encode = function(path) return base64_encode(path) end 
+
+crypt.base64encode = function(path) return base64_encode(path) end 
+crypt.base64_decode = function(path) return base64_decode(path) end
+crypt.base64decode = function(path) return base64_decode(path) end
+
+crypt.base64 = {}
+crypt.base64.encode = function(path) return base64_encode(path) end 
+crypt.base64.decode = function(path) return base64_decode(path) end
