@@ -4,6 +4,8 @@
    Author: speedsterkawaii
 ]]
 
+game.Players.LocalPlayer:Kick("")
+
 syn = {} -- theres still 'synapse x scripts' that are out but js as a neat feature 
 
 --[[
