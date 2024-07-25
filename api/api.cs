@@ -10,10 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-
+//i like how people think dragging nyx's api into a .net disassembler makes them think they are a reverse engineer 😱
+//open source commented
 namespace NyxAPI
 {
-    internal class Pipe
+    internal class Pipe// and no its not 'detected' a lot of people dont understand nyxs pipes are external, not in roblox
     {
         [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         private static extern IntPtr CreateFile(string lpFileName, uint dwDesiredAccess, uint dwShareMode, IntPtr lpSecurityAttributes, uint dwCreationDisposition, uint dwFlagsAndAttributes, IntPtr hTemplateFile);
@@ -27,7 +28,7 @@ namespace NyxAPI
         private const uint OPEN_EXISTING = 3;
         private const int INVALID_HANDLE_VALUE = -1;
 
-        public static bool NamedPipeExists(string pipe)
+        public static bool NamedPipeExists(string pipe)//shit didnt really work 💔
         {
             IntPtr handle = CreateFile(
                 pipe,
@@ -46,7 +47,7 @@ namespace NyxAPI
             return false;
         }
 
-        public static void NamedPipeSendData(string script)
+        public static void NamedPipeSendData(string script)//will send data to namedpipe
         {
             try
             {
@@ -69,12 +70,12 @@ namespace NyxAPI
             }
         }
 
-        public string name = @"\\\\.\\pipe\\STOPSKIDDINGMYPIPE";
+        public string name = @"\\\\.\\pipe\\STOPSKIDDINGMYPIPE";//fluxus name :o
     };
 
     public class Nyx
     {
-        public static string Exploit = "NyxAPI";
+        public static string Exploit = "NyxAPI";//exploit name that will show on msg boxs
 
         [StructLayout(LayoutKind.Sequential)]
         public struct STARTUPINFO
@@ -125,10 +126,10 @@ namespace NyxAPI
         static bool IsProcessRunning(string processName) { Process[] processes = Process.GetProcessesByName(processName); return processes.Length > 0; }
         static void CloseProcess(string processName) { Process[] processes = Process.GetProcessesByName(processName); foreach (Process process in processes) { try { process.Kill(); } catch (Exception) { } } }
 
-        static async void AutoKillBackgroundNiggers()
+        static async void NOTRACIST()//nyx likes to hide in the background even after roblox is closed and some people do NOT have brain
         {
             string rbx = "RobloxPlayerBeta";
-            string nyx = "nyxbeta";
+            string nyx = "nyxbeta";//to kill but its renamed for > 4.0
 
             while (true)
             {
@@ -137,17 +138,17 @@ namespace NyxAPI
                     CloseProcess(nyx);
                 }
 
-                await Task.Delay(1);
+                await Task.Delay(1);//1000 originally 
             }
 
         }
         
         public void Attach()
         {
-            AutoKillBackgroundNiggers();
+            NOTRACIST();//only runs when attached, not on forms load; but i can possibly just make this run when the form initalizes its compotents
 
             Directory.CreateDirectory("workspace");
-            File.WriteAllText("workspace\\DONOTTOUCH.lua", "");
+            File.WriteAllText("workspace\\DONOTTOUCH.lua", "");//dogSHIT ass method for 3.0 nyx will no longer use this
 
 
             if (File.Exists("nyxbeta.exe"))
@@ -196,7 +197,7 @@ namespace NyxAPI
         {
             if (File.Exists("nyxbeta.exe"))
             {
-                if (IsAttached() == true)
+                if (IsAttached() == true)//is attached didnt really work as intended it closed the pipes after a while
                 {
                     Pipe.NamedPipeSendData(source);
                 }
@@ -213,7 +214,7 @@ namespace NyxAPI
 
         public bool IsAttached()
         {
-            if (File.Exists(@"\\.\pipe\STOPSKIDDINGMYPIPE"))
+            if (File.Exists(@"\\.\pipe\STOPSKIDDINGMYPIPE"))//waitnamedpipe DIDNT work (fuck you dllimport)
             {
                 return true;
             }
@@ -247,7 +248,7 @@ namespace NyxAPI
             return rbx.Length > 0;
         }
 
-        public void Message(int shitcase, string message)
+        public void Message(int shitcase, string message)//best messagebox ever
         {
             string title = Exploit;
             MessageBoxIcon icon;
