@@ -1,11 +1,12 @@
 -- what script actually uses these shit lol
-function rconsoleclear() 
+--https://synapsexdocs.github.io/custom-lua-functions/console-functions/
+function rconsoleclear() --Clears the console. MACRO: system("CLS")
 end
 
 function rconsolecreate() --todo: allocate console via bridge??? possible but i dont want to do this
 end
 
-function rconsoledestroy() 
+function rconsoledestroy() -- in cpp i would do ShowWindow(hwnd, SW_HIDE) to destroy if we want we can just close it 
 end
 
 function rconsoleinput() 
