@@ -1,4 +1,4 @@
--- bit library because yes
+-- bit library 
 local bit = {}
 
 function bit.bdiv(dividend, divisor)
