@@ -17,11 +17,6 @@ function info(...) -- possible via print address but im external so
   print(...)
 end
 
--- unnamed esp support and other 'synapse' based scripts
-function syn()
-   return "asd"--asd
-end
-
 function PROTOSMASHER_LOADED()
    return true
 end
