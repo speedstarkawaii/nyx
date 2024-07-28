@@ -156,3 +156,15 @@ end
 crypt.generatekey = function()
     return crypt.generatebytes(32)
 end
+
+-- ill just admit it these are placeholders - meaning i gotta add actual function so ill add them later
+function crypt.encrypt(data, key, iv, mode)
+    local iv = iv or crypt.generatebytes(16)  
+    local encrypted = "encrypted_" .. data
+    return encrypted, iv
+end
+
+function crypt.decrypt(data, key, iv, mode)
+    local decrypted = string.gsub(data, "^encrypted_", "")
+    return decrypted
+end
