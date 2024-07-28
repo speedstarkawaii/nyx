@@ -5,6 +5,15 @@
    Poorly written functions 💔💔 vanities macros aliases etc
 ]]
 
+--todo later;
+game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        --nyxsigned_module_injection_restart()
+      
+    end
+end)
+
+-- too lazy to do it but its possible, just not the best :c
 function firesignal(signal) -- this will fire all connections for a given RBXScriptSignal
     if typeof(signal) ~= "RBXScriptSignal" then
         error("Expected an RBXScriptSignal, got " .. typeof(signal)) --todo: replace error with warn later on because error has a problem where execution stops? idk its odd
@@ -19,6 +28,15 @@ end
 
 function PROTOSMASHER_LOADED() -- i hate unnamed esp :c
    return true
+end
+
+-- more aliases
+function toclipboard(...)
+   setclipboard(...)
+end
+
+function setrbxclipboard(...)
+   setclipboard(...)
 end
 
 -- unused functions by people, just added though
