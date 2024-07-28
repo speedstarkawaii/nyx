@@ -150,7 +150,7 @@ crypt.generatebytes = function(size)
         randomBytes[i] = string.char(math.random(0, 255))
     end
     local byteString = table.concat(randomBytes)
-    return base64_fake_encode(byteString)
+    return base64encode(byteString)
 end
 
 crypt.generatekey = function()
