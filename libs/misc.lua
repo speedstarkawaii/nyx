@@ -95,3 +95,16 @@ end
 base64_decode = function(vanity)
    return base64decode(vanity)
 end
+
+crypt.generatebytes = function(size)
+    local randomBytes = {}
+    for i = 1, size do
+        randomBytes[i] = string.char(math.random(0, 255))
+    end
+    local byteString = table.concat(randomBytes)
+    return crypt.base64Encode(byteString)
+end
+
+crypt.generatekey = function()
+    return crypt.generatebytes(32)
+end
