@@ -2,7 +2,7 @@
    File: misc.lua
    Author: speedsterkawaii
 
-   Poorly written functions 💔💔
+   Poorly written functions 💔💔 vanities macros aliases etc
 ]]
 
 function firesignal(signal) -- this will fire all connections for a given RBXScriptSignal
@@ -17,7 +17,7 @@ function info(...) -- possible via print address but im external so
   print(...)
 end
 
-function PROTOSMASHER_LOADED()
+function PROTOSMASHER_LOADED() -- i hate unnamed esp :c
    return true
 end
 
@@ -26,7 +26,7 @@ function random_string(length)
     local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
     if length <= 0 then
-        error("Length must be a positive integer.")
+        error("Length must be a positive integer.") -- we shall return -10 random length
         return ""
     end
     
@@ -43,4 +43,55 @@ function random_string(length)
     end
     
     return randomString
+end
+
+-- base64 
+
+--[[
+why do people need so much aliases just stick to one
+this was for unc
+]]
+
+crypt = {} -- store
+base64 = {}
+
+crypt.base64encode = function(arg1)
+return base64encode(arg1)
+end
+
+crypt.base64decode = function(arg2)
+return base64decode(arg2)
+end
+
+crypt.base64_encode = function(arg1)
+return base64encode(arg1)
+end
+
+crypt.base64_decode = function(arg2)
+return base64decode(arg2)
+end
+
+crypt.base64 = {}
+crypt.base64.encode = function(omg)
+return base64encode(omg)
+end
+
+crypt.base64.decode = function(stop_making_me_Write_this)
+return base64decode(stop_making_me_Write_this)
+end
+
+base64.encode = function(vanity)
+   return base64encode(vanity)
+end
+
+base64.decode = function(vanity)
+   return base64decode(vanity)
+end
+
+base64_encode = function(vanity)
+   return base64encode(vanity)
+end
+
+base64_decode = function(vanity)
+   return base64decode(vanity)
 end
