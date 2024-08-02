@@ -9,7 +9,7 @@
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
         --nyxsigned_module_injection_restart()
-      
+         system("msg * TELEPORT FAILURE") -- cheap me
     end
 end)
 
@@ -24,6 +24,16 @@ end
 
 function info(...) -- possible via print address but im external so
   print(...)
+end
+
+function decompile(source) 
+    if source:IsA("LocalScript") then
+        return "-- Disassembled "..source.Name
+    elseif source:IsA("ModuleScript") then
+        return "-- Disassembled "..source.Name
+    else
+        return "-- why is bro decompiling a script"
+    end
 end
 
 function PROTOSMASHER_LOADED() -- i hate unnamed esp :c
