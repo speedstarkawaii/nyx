@@ -46,7 +46,7 @@ function decompile(source)
             return "-- Disassembled "..source.Name
         end
     else
-        return "-- why is bro decompiling a script"
+        return "-- why is bro decompiling a script?"
     end
 end
 
