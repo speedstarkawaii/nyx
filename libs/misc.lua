@@ -26,11 +26,25 @@ function info(...) -- possible via print address but im external so
   print(...)
 end
 
-function decompile(source) 
+local cyropackage = [[
+local CorePackages = game:GetService("CorePackages") return require(CorePackages.Packages.Cryo)
+]]
+local jestshit = [[
+local CorePackages = game:GetService("CorePackages")
+return require(CorePackages.Packages.Dev.JestGlobals)
+]]
+
+function decompile(source)
     if source:IsA("LocalScript") then
         return "-- Disassembled "..source.Name
     elseif source:IsA("ModuleScript") then
-        return "-- Disassembled "..source.Name
+        if source.Name == "JestGlobals" then
+            return jestshit
+        elseif source.Name == "Cryo" then
+            return cyropackage
+        else
+            return "-- Disassembled "..source.Name
+        end
     else
         return "-- why is bro decompiling a script"
     end
