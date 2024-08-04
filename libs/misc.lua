@@ -5,7 +5,7 @@
    Poorly written functions 💔💔 vanities macros aliases etc
 ]]
 
---todo later;
+--todo later: it CAN work but i think we need to revert the modulescripts source or something
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
         --nyxsigned_module_injection_restart()
@@ -20,11 +20,19 @@ function firesignal(signal) -- this will fire all connections for a given RBXScr
     end
 
    -- I AM NOT DOING THE REST
+   error("firesignal is not implanted")
 end
 
 function info(...) -- possible via print address but im external so
   print(...)
 end
+
+function getfpscap() -- not effective it will always return 60
+    local fps = workspace:GetRealPhysicsFPS()
+    return fps
+end
+
+-- aliases or fake
 
 local cyropackage = [[
 local CorePackages = game:GetService("CorePackages") return require(CorePackages.Packages.Cryo)
@@ -33,7 +41,7 @@ local jestshit = [[
 local CorePackages = game:GetService("CorePackages")
 return require(CorePackages.Packages.Dev.JestGlobals)
 ]]
-
+-- fake decompile to expirement with
 function decompile(source)
     if source:IsA("LocalScript") then
         return "-- Disassembled "..source.Name
@@ -55,36 +63,12 @@ function PROTOSMASHER_LOADED() -- i hate unnamed esp :c
 end
 
 -- more aliases
-function toclipboard(...)
-   setclipboard(...)
+function toclipboard(junk)
+   setclipboard(junk)
 end
 
-function setrbxclipboard(...)
-   setclipboard(...)
-end
-
--- unused functions by people, just added though
-function random_string(length)
-    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    
-    if length <= 0 then
-        error("Length must be a positive integer.") -- we shall return -10 random length
-        return ""
-    end
-    
-    math.randomseed(tick())
-    
-    local function randomchar()
-        local index = math.random(1, #charset)
-        return charset:sub(index, index)
-    end
-    
-    local randomresult = ""
-    for i = 1, length do
-        randomresult = randomresult .. randomchar()
-    end
-    
-    return randomString
+function setrbxclipboard(junk)
+   setclipboard(junk)
 end
 
 -- base64 
@@ -181,7 +165,7 @@ crypt.generatekey = function()
     return crypt.generatebytes(32)
 end
 
--- ill just admit it these are placeholders - meaning i gotta add actual function so ill add them later
+-- these are placeholders - meaning i gotta add actual function so ill add them later
 function crypt.encrypt(data, key, iv, mode)
     local iv = iv or crypt.generatebytes(16)  
     local encrypted = "encrypted_" .. data
