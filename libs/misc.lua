@@ -176,3 +176,6 @@ function crypt.decrypt(data, key, iv, mode)
     local decrypted = string.gsub(data, "^encrypted_", "")
     return decrypted
 end
+
+crypt.hash = function(tohash,algor)
+end
