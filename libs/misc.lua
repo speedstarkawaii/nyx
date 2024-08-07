@@ -34,6 +34,51 @@ end
 
 -- aliases or fake
 
+function getconnections(signal: RBXScriptSignal): {Connection} -- FAKE i will work on this another day
+    local connections = {}
+
+    local function mockConnection(func)
+        local conn = {}
+        conn.Enabled = true
+        conn.ForeignState = false
+        conn.LuaConnection = true
+        conn.Function = func
+        conn.Thread = coroutine.running()
+
+        function conn:Fire(...)
+            if self.Enabled then
+                func(...)
+            end
+        end
+
+        function conn:Defer(...)
+            if self.Enabled then
+                task.defer(func, ...)
+            end
+        end
+
+        function conn:Disconnect()
+            self.Enabled = false
+        end
+
+        function conn:Disable()
+            self.Enabled = false
+        end
+
+        function conn:Enable()
+            self.Enabled = true
+        end
+
+        return conn
+    end
+
+    for i = 1, 5 do
+        table.insert(connections, mockConnection(function() print("Connected function " .. i) end))
+    end
+
+    return connections
+end
+
 local cyropackage = [[
 local CorePackages = game:GetService("CorePackages") return require(CorePackages.Packages.Cryo)
 ]]
