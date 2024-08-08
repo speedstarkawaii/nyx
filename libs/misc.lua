@@ -25,7 +25,7 @@ local ascii = [[
 '--'    '--'  `-..-'      '--'     '----' 
     ]]
 
-warn(ascii.."\nWelcome to NYX! Thanks to piomanly, speedsterkawaii, and j4yvyn")
+--warn(ascii.."\nWelcome to NYX! Thanks to piomanly, speedsterkawaii, and j4yvyn")
 
 
 
