@@ -13,10 +13,7 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     end
 end)
 
-local rnimsuckinganutshell = Instance.new("ScreenGui")
-
-
-    local ascii = [[      
+local ascii = [[      
 ,---.   .--.   ____     __ _____     __   
 |    \  |  |   \   \   /  /\   _\   /  /  
 |  ,  \ |  |    \  _. /  ' .-./ ). /  '   
@@ -28,7 +25,7 @@ local rnimsuckinganutshell = Instance.new("ScreenGui")
 '--'    '--'  `-..-'      '--'     '----' 
     ]]
 
-    warn(ascii.."\nWelcome to NYX! Thanks to piomanly, speedsterkawaii, and j4yvyn")
+warn(ascii.."\nWelcome to NYX! Thanks to piomanly, speedsterkawaii, and j4yvyn")
 
 
 
