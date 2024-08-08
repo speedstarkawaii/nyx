@@ -32,6 +32,13 @@ function getfpscap() -- not effective it will always return 60
     return fps
 end
 
+function GetObjects(id)
+    local objects = {}
+    table.insert(objects, game:GetService("InsertService"):LoadLocalAsset(id))
+    return objects
+end
+
+
 -- aliases or fake
 
 function getconnections(signal: RBXScriptSignal): {Connection} -- FAKE i will work on this another day
