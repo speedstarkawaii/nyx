@@ -15,8 +15,6 @@ end)
 
 local rnimsuckinganutshell = Instance.new("ScreenGui")
 
-local function WatermarkInit()
-	local script = Instance.new('LocalScript', rnimsuckinganutshell)
 
     local ascii = [[      
 ,---.   .--.   ____     __ _____     __   
@@ -31,8 +29,8 @@ local function WatermarkInit()
     ]]
 
     warn(ascii.."\nWelcome to NYX! Thanks to piomanly, speedsterkawaii, and j4yvyn")
-end
-coroutine.wrap(WatermarkInit)()
+
+
 
 -- too lazy to do it but its possible, just not the best :c
 function firesignal(signal) -- this will fire all connections for a given RBXScriptSignal
