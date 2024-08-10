@@ -55,7 +55,7 @@ local function animateImage()
     fadeIn:Play()
     fadeIn.Completed:Wait()
 
-    wait(2)
+    wait(1.30)
 
     local fadeOut = TweenService:Create(ImageLabel, TweenInfo.new(1), {ImageTransparency = 1})
     fadeOut:Play()
