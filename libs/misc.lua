@@ -12,7 +12,6 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
          system("msg * TELEPORT FAILURE") -- cheap me
     end
 end)
-
 local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
 local Lighting = game:GetService("Lighting")
@@ -28,7 +27,10 @@ Frame.BackgroundColor3 = Color3.new(1, 1, 1)
 Frame.BackgroundTransparency = 1
 Frame.BorderSizePixel = 0
 Frame.BorderColor3 = Color3.new(0, 0, 0)
-ImageLabel.Position = UDim2.new(0.4151, 0, 0.3941, 0) -- Fixed position
+
+-- Center the image for all players
+ImageLabel.Position = UDim2.new(0.5, 0, 0.5, 0) -- Center position
+ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5) -- Anchor to the center of the image
 ImageLabel.Size = UDim2.new(0, 325, 0, 204)
 ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 ImageLabel.BackgroundTransparency = 1
@@ -39,7 +41,7 @@ ImageLabel.ScaleType = Enum.ScaleType.Crop
 ImageLabel.ImageTransparency = 1 -- Start fully transparent
 
 local blurEffect = Instance.new("BlurEffect", Lighting)
-blurEffect.Size = 0 
+blurEffect.Size = 0
 
 local function animateImage()
     local blurIn = TweenService:Create(blurEffect, TweenInfo.new(1), {Size = 24}) -- Maximum blur
@@ -64,6 +66,7 @@ local function animateImage()
 end
 
 animateImage()
+
 
 
 
