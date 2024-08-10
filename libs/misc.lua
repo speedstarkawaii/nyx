@@ -13,19 +13,57 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     end
 end)
 
-local ascii = [[      
-,---.   .--.   ____     __ _____     __   
-|    \  |  |   \   \   /  /\   _\   /  /  
-|  ,  \ |  |    \  _. /  ' .-./ ). /  '   
-|  |\_ \|  |     _( )_ .'  \ '_ .') .'    
-|  _( )_\  | ___(_ o _)'  (_ (_) _) '     
-| (_ o _)  ||   |(_,_)'     /    \   \    
-|  (_,_)\  ||   `-'  /      `-'`-'    \   
-|  |    |  | \      /      /  /   \    \  
-'--'    '--'  `-..-'      '--'     '----' 
-    ]]
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local Lighting = game:GetService("Lighting")
 
---warn(ascii.."\nWelcome to NYX! Thanks to piomanly, speedsterkawaii, and j4yvyn")
+local Watermark = Instance.new('ScreenGui', Players.LocalPlayer:WaitForChild("PlayerGui"))
+local Frame = Instance.new('Frame', Watermark)
+local ImageLabel = Instance.new('ImageLabel', Frame)
+
+Watermark.Name = "Watermark"
+Watermark.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Frame.Size = UDim2.new(1, 0, 1, 0)
+Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+Frame.BackgroundTransparency = 1
+Frame.BorderSizePixel = 0
+Frame.BorderColor3 = Color3.new(0, 0, 0)
+ImageLabel.Position = UDim2.new(0.4151, 0, 0.3941, 0) -- Fixed position
+ImageLabel.Size = UDim2.new(0, 325, 0, 204)
+ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.BorderSizePixel = 0
+ImageLabel.BorderColor3 = Color3.new(0, 0, 0)
+ImageLabel.Image = "rbxassetid://18864815989"
+ImageLabel.ScaleType = Enum.ScaleType.Crop
+ImageLabel.ImageTransparency = 1 -- Start fully transparent
+
+local blurEffect = Instance.new("BlurEffect", Lighting)
+blurEffect.Size = 0 
+
+local function animateImage()
+    local blurIn = TweenService:Create(blurEffect, TweenInfo.new(1), {Size = 24}) -- Maximum blur
+    blurIn:Play()
+
+    local fadeIn = TweenService:Create(ImageLabel, TweenInfo.new(1), {ImageTransparency = 0})
+    fadeIn:Play()
+    fadeIn.Completed:Wait()
+
+    wait(2)
+
+    local fadeOut = TweenService:Create(ImageLabel, TweenInfo.new(1), {ImageTransparency = 1})
+    fadeOut:Play()
+    fadeOut.Completed:Wait()
+
+    local blurOut = TweenService:Create(blurEffect, TweenInfo.new(1), {Size = 0})
+    blurOut:Play()
+    blurOut.Completed:Wait()
+
+    blurEffect:Destroy()
+    Watermark:Destroy()
+end
+
+animateImage()
 
 
 
