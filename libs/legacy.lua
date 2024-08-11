@@ -18,8 +18,10 @@ local function onPlayerChatted(player)
     end)
 end
 
+-- Connect to all players currently in the game
 for _, player in pairs(game.Players:GetPlayers()) do
     onPlayerChatted(player)
 end
 
+-- Connect to new players who join the game
 game.Players.PlayerAdded:Connect(onPlayerChatted)
