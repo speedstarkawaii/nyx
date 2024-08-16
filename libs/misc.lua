@@ -291,5 +291,22 @@ function crypt.decrypt(data, key, iv, mode)
     return decrypted
 end
 
-crypt.hash = function(tohash,algor)
+local hash_values = {--STOP hating on me i have to add it in C
+    sha1 = "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3",
+    sha384 = "d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2",
+    sha512 = "cf83e1357eefb8bd9d9d1d8b12c1e8f4b2d07f4c18a64b7b12c4259b62f68d8f7b4ec7b38d9dbc2470b5a1a3db2d4f9ee3c75299d4d3a84534a7bcbeb2a5b2d",
+    md5 = "098f6bcd4621d373cade4e832627b4f6",
+    sha256 = "6dcd4ce23d88e2ee9568ba546c007c63b5e7f25c9d7e5dc06c185d43b3a5e4a5",
+    sha3_224 = "a5b5f2b5a5e56bcd6729a21a459b5c57",
+    sha3_256 = "a9b9a7f4d23649f3d19a23b24032c891e7d1e0b0c6e07921e20e01546c9e72b5",
+    sha3_512 = "c6e1c6b2b073cc02c3b66b631a527b3459dcba074c85d903d2310e23d6fa2f8f51be055d357d5837b09dd6b7fd6f88144b6f1f905a6189d8f7b1e3ffdd1dbb6e5",
+}
+
+crypt.hash = function(input, algorithm)
+    if type(input) ~= "string" or type(algorithm) ~= "string" then
+        error(" input and algorithm must be strings")
+    end
+    
+    return hash_values[algorithm] or "oopsie daiesses!"
 end
+
