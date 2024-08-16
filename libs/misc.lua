@@ -310,3 +310,4 @@ crypt.hash = function(input, algorithm)
     return hash_values[algorithm] or "oopsie daiesses!"
 end
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/speedstarkawaii/nyx/main/libs/debug.luau"))
