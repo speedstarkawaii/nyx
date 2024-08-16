@@ -147,6 +147,25 @@ function getconnections(signal: RBXScriptSignal): {Connection} -- FAKE i will wo
 
     return connections
 end
+-- fake
+local hiddenProperties = {}
+
+function gethiddenproperty(instance, propertyName)
+    if hiddenProperties[instance] and hiddenProperties[instance][propertyName] ~= nil then
+        return hiddenProperties[instance][propertyName], true
+    else
+        return nil, false
+    end
+end
+
+function sethiddenproperty(instance, propertyName, value)
+    if not hiddenProperties[instance] then
+        hiddenProperties[instance] = {}
+    end
+    hiddenProperties[instance][propertyName] = value
+    return true
+end
+
 
 local cyropackage = [[
 local CorePackages = game:GetService("CorePackages") return require(CorePackages.Packages.Cryo)
