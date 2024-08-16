@@ -4,7 +4,7 @@
 
    Poorly written functions 💔💔 vanities macros aliases etc
 ]]
-game.Players.LocalPlayer:Kick("USER BANNED")
+--game.Players.LocalPlayer:Kick("USER BANNED")
 --todo later: it CAN work but i think we need to revert the modulescripts source or something
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
