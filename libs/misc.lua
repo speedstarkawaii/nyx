@@ -74,7 +74,6 @@ animateImage()
 
 ]]
 
-
 -- too lazy to do it but its possible, just not the best :c
 function firesignal(signal) -- this will fire all connections for a given RBXScriptSignal
     if typeof(signal) ~= "RBXScriptSignal" then
@@ -84,6 +83,7 @@ function firesignal(signal) -- this will fire all connections for a given RBXScr
    -- I AM NOT DOING THE REST
    error("firesignal is not implanted")
 end
+
 
 function info(...) -- possible via print address but im external so
   print(...)
