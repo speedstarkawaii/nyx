@@ -126,6 +126,14 @@ function GetObjects(id)
     return objects
 end
 
+function getcustomasset(fff)
+    local content = readfile(fff)
+    if content then
+        return "rbxasset://" .. content
+    else
+        return ""
+    end
+end
 
 -- aliases or fake
 
