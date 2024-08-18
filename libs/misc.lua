@@ -387,3 +387,26 @@ function WebSocket.connect(url)
 
     return ws
 end
+
+function getsenv(script)
+    if typeof(script) ~= "Instance" or (script.ClassName ~= "Script" and script.ClassName ~= "LocalScript" and script.ClassName ~= "ModuleScript") then
+        error("Invalid input: must be a Script, LocalScript, or ModuleScript.")
+    end
+    
+    local env = {
+        script = script
+    }
+    
+    return env
+end
+
+function getgc()
+    local gc = {}
+
+    table.insert(gc, {name = "fake"})
+    table.insert(gc, {name = "xd"})
+    table.insert(gc, {name = "fuck you"})
+
+    return gc
+end
+
