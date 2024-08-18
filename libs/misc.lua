@@ -116,6 +116,8 @@ function info(...)
 end
 
 
+
+
 function getfpscap()
     return math.floor(1 / game:GetService("RunService").RenderStepped:Wait() + 0.5)
 end
@@ -363,4 +365,25 @@ crypt.hash = function(input, algorithm)
     return hash_values[algorithm] or "oopsie daiesses!"
 end
 
-loadstring(HttpGet("https://raw.githubusercontent.com/speedstarkawaii/nyx/main/libs/debug.luau"))
+WebSocket = {}
+
+function WebSocket.connect(url)
+    local ws = {}
+    
+    function ws:Send(message)
+        print("Sending message:", message)
+    end
+    
+    function ws:Close()
+        print("WebSocket closed")
+    end
+    
+    ws.OnMessage = {}
+    ws.OnClose = {}
+    
+
+    ws.OnMessage = {"This is a mock message"} 
+    ws.OnClose = {"WebSocket connection closed"}
+
+    return ws
+end
