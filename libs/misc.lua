@@ -430,3 +430,13 @@ end
 function dumpstring(source)
     return getscriptbytecode(source)
    end
+
+function random_string(length)
+    local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    local result = ""
+    for i = 1, length do
+        local randomIndex = math.random(1, #chars)
+        result = result .. chars:sub(randomIndex, randomIndex)
+    end
+    return result
+end
