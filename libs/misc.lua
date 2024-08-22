@@ -524,3 +524,32 @@ end
     x, y = x or 0, y or 0
     vim:SendMouseMoveEvent(x, y, game)
 end
+
+
+local scriptableProperties = {}
+
+function isscriptable(object, property)
+    local objectProperties = scriptableProperties[object]
+    if objectProperties and objectProperties[property] ~= nil then
+        return objectProperties[property]
+    end
+
+    local success, _ = pcall(function()
+        return object[property]
+    end)
+
+    return success and object[property] ~= nil
+end
+
+
+function setscriptable(object, property, value)
+    local wasScriptable = isscriptable(object, property)
+
+    if not scriptableProperties[object] then
+        scriptableProperties[object] = {}
+    end
+
+    scriptableProperties[object][property] = value
+
+    return wasScriptable
+end
