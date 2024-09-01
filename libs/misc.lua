@@ -553,3 +553,28 @@ function setscriptable(object, property, value)
 
     return wasScriptable
 end
+
+nyx = {}
+
+function nyx.print(...)
+    local message = table.concat({...}, ' '):gsub("TestService:", "")
+    game:GetService('TestService'):Message(message)
+end
+
+function nyx.identity()
+    return 3
+end
+
+function nyx.randomstring(length)
+    local characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    local randomString = ""
+
+    for i = 1, length do
+        local randomIndex = math.random(1, #characters)
+        randomString = randomString .. characters:sub(randomIndex, randomIndex)
+    end
+
+    return randomString
+end
+
+--im in a relationship with all my bitches ya
