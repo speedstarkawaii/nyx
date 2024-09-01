@@ -1,0 +1,4 @@
+{
+    "version": "v4.9.7",
+    "information": "Added cloneref, compareinstances & injection times are faster"
+}
