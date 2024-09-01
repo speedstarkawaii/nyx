@@ -1,4 +1,4 @@
 {
     "version": "v4.9.7",
-    "information": "Added cloneref, compareinstances & injection times are faster"
+    "information": "Added cloneref, compareinstances\nInjection times are faster\nRemoved game internal interface"
 }
