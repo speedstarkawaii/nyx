@@ -1,4 +1,4 @@
 {
-    "version": "v4.9.7",
-    "information": "Added cloneref, compareinstances\nInjection times are faster\nRemoved game internal interface"
+    "version": "v4.9.8",
+    "information": "Added nyx dedicated lib (nyx.info, nyx.identity, nyx.randomstring)"
 }
