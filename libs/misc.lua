@@ -112,11 +112,6 @@ function firesignal(signal) -- this will fire all connections for a given RBXScr
 end
 
 
-function info(...) 
-  print(...)
-end
-
-
 function getfpscap()
     return math.floor(1 / game:GetService("RunService").RenderStepped:Wait() + 0.5)
 end
@@ -566,7 +561,7 @@ function nyx.identity()
 end
 
 function nyx.randomstring(length)
-    local characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    local characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-+[]{}\|;:',<.>/?"
     local randomString = ""
 
     for i = 1, length do
