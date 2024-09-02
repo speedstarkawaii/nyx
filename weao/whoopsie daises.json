@@ -1,4 +1,4 @@
 {
-    "version": "v4.9.8",
-    "information": "Added nyx dedicated lib (nyx.info, nyx.identity, nyx.randomstring)"
+    "version": "v4.9.9",
+    "information": "autoexecute back, no more false error codes (initially the injector thought people were attempting to crack it)"
 }
