@@ -1,4 +1,4 @@
 {
-    "version": "v4.9.9",
-    "information": "- autoexec fixed\n- new temp ui\n5.0 soon"
+    "version": "v4.9.9 beta",
+    "information": "- back again with normal execution\n- injection will TELL you when its injected in dev console"
 }
