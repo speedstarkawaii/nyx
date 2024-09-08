@@ -1,4 +1,4 @@
 {
     "version": "v4.9.9",
-    "information": "autoexecute back, no more false error codes (initially the injector thought people were attempting to crack it)"
+    "information": "- autoexec fixed\n- new temp ui\n5.0 soon"
 }
